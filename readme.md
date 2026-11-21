@@ -2,6 +2,16 @@
 
 This is a fork of [NuPhy's official QMK firmware](https://github.com/nuphy-src/qmk_firmware) with modern QMK pulled in from [QMK's own repository](https://github.com/qmk/qmk_firmware). It focuses on keeping the **NuPhy Halo75 V2** keyboard fully functional with the latest QMK, including proper ISO support, wireless connectivity, and side LED control.
 
+## Important disclaimer
+
+**Unofficial firmware. Flash at your own risk.** This fork is independently maintained and has no endorsement from NuPhy. For official firmware and device support, use NuPhy's own channels.
+
+Flashing third-party firmware can erase VIA mappings and saved settings, disrupt USB or wireless functionality, damage hardware, or leave your keyboard unusable. An interrupted flash, an incompatible firmware image, or a firmware defect can make recovery difficult or impossible.
+
+Before flashing, confirm the exact keyboard model and ANSI or ISO layout. Back up your VIA mappings and settings, and have the correct official firmware and recovery instructions for your board on hand.
+
+I provide this firmware **as is, without warranty**. To the extent permitted by applicable law, I assume no responsibility for hardware damage, lost data or settings, loss of functionality, or recovery costs resulting from flashing or using this firmware. See [the license](LICENSE) for the warranty and liability terms.
+
 ## Why This Exists
 
 NuPhy does not publish ISO firmware for the Halo75 V2. The only firmware available on the [NuPhy homepage](https://nuphy.com/) is ANSI, and NuPhy support was unable to provide an ISO build when asked. Flashing the ANSI firmware onto an ISO keyboard leaves several keys broken — the `<>` key next to left shift, the `§` key next to ESC, the ISO Enter, and the `'` key all produce wrong characters.
