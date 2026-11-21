@@ -18,17 +18,36 @@ A 75% wireless mechanical keyboard with RGB matrix and side LEDs.
 
 ## Building
 
-### ANSI
+From the QMK repository root, build the four supported release targets:
 
 ```bash
+qmk compile -kb nuphy/halo75_v2/ansi -km default
 qmk compile -kb nuphy/halo75_v2/ansi -km via
-```
-
-### ISO
-
-```bash
+qmk compile -kb nuphy/halo75_v2/iso -km default
 qmk compile -kb nuphy/halo75_v2/iso -km via
 ```
+
+Release builds keep diagnostics disabled. For build validation, start each
+configuration with a clean build directory. Repeat all four targets with
+`-e CONSOLE_ENABLE=yes`, then repeat with both `-e CONSOLE_ENABLE=yes` and
+`-e RGB_DEBUG=yes`. Save logs and artifacts per configuration because the
+diagnostic builds use the same output names as the release builds.
+
+Run strict keyboard lint from the same checkout:
+
+```bash
+qmk lint --strict -kb nuphy/halo75_v2/ansi
+qmk lint --strict -kb nuphy/halo75_v2/iso
+```
+
+QMK lint rejects the `via` keymap name. Both VIA keymaps are supported and
+intentionally retained in this fork. Repeat with `-km default` to check each
+default keymap separately.
+
+The non-publishing Woodpecker pull-request build assembles the four release
+binaries, the ANSI and ISO VIA definitions, and `SHA256SUMS`. Use a pull request
+for hosted build verification. A generic Woodpecker manual event also matches
+the nightly publishing workflow.
 
 ## Flashing
 
